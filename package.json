@@ -1,17 +1,24 @@
 {
+  "name": "advent-of-code-2021",
+  "description": "Advent of code 2021",
+  "license": "UNLICENSED",
+  "author": "Claudio scotto",
+  "repository": "https://github.com/claudiosc8/advent-of-code-2021",
+  "engines": {
+    "node": ">=15.0.0"
+  },
   "scripts": {
     "test": "jest",
     "lint": "./node_modules/.bin/eslint src/*"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
-    "jest": "^27.4.4"
-  },
-  "dependencies": {
+    "eslint-plugin-jest": "^25.3.0",
+    "jest": "^27.4.4",
     "prettier": "^2.5.1",
     "prettier-eslint": "^13.0.0"
   },
-   "jest": {
+  "jest": {
     "verbose": true
   }
 }
