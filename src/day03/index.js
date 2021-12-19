@@ -42,7 +42,7 @@ const solution1 = (input) => {
 	return epsilonDecimal * gammaDecimal;
 };
 
-const findGeneratorRating = (instructions, symbol) => {
+const findGeneratorRating = (instructions, greaterThan) => {
 	let rating = instructions;
 	let index = 0;
 
@@ -52,7 +52,9 @@ const findGeneratorRating = (instructions, symbol) => {
 			const occurrences = findOccurrence(transposed[index], "1");
 
 			const half = transposed[index].length / 2;
-			const check = symbol ? occurrences >= half : occurrences < half;
+			const check = greaterThan
+				? occurrences >= half
+				: occurrences < half;
 
 			const mostCommon = check ? "1" : "0";
 
