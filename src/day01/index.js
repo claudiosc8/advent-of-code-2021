@@ -35,3 +35,5 @@ const solution2 = (input) => {
 
 console.log("SOLUTION 1:", solution1(array));
 console.log("SOLUTION 2:", solution2(array));
+
+module.exports = {solution1, solution2}
