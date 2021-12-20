@@ -1,5 +1,4 @@
 const input = require("./input.js");
-const util = require("util");
 
 const getInstructions = (i) => {
 	const rows = i.split(/\n/);
