@@ -70,7 +70,6 @@ const findPoints = (map, entry, basin = {}) => {
 
 const solution2 = (input) => {
 	const map = getInstructions(input);
-
 	const lowestPoints = getLowestPoints(map);
 
 	const basins = [];
