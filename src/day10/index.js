@@ -5,6 +5,19 @@ const getInstructions = (i) => i.split(/\n/);
 const openBrackets = ["(", "[", "{", "<"];
 const closedBrackets = [")", "]", "}", ">"];
 
+const getMatchingBrackets = (symbol) => {
+	const closedIndex = closedBrackets.indexOf(symbol);
+	const openIndex = openBrackets.indexOf(symbol);
+
+	if (closedIndex < 0 && openIndex < 0) {
+		throw new Error(`Not a valid brackets: ${symbol}`);
+	}
+
+	return closedIndex > -1
+		? openBrackets[closedIndex]
+		: closedBrackets[openIndex];
+};
+
 const analyzeLine = (line) => {
 	const array = line.split("");
 
@@ -13,8 +26,7 @@ const analyzeLine = (line) => {
 		const index = array.findIndex((l) => closedBrackets.includes(l));
 		if (index > -1) {
 			const symbol = array[index];
-			const openPairIndex = closedBrackets.indexOf(symbol);
-			const openPair = openBrackets[openPairIndex];
+			const openPair = getMatchingBrackets(symbol);
 
 			if (array[index - 1] === openPair) {
 				array.splice(index - 1, 2); // remove the pair of brackets from array
@@ -63,9 +75,7 @@ const solution2 = (input) => {
 		if (Array.isArray(result)) {
 			// reverse array and map matching closing brackets
 			const missingBrackets = result.reverse().map((symbol) => {
-				const closedPairIndex = openBrackets.indexOf(symbol);
-				const closedPair = closedBrackets[closedPairIndex];
-				return closedPair;
+				return getMatchingBrackets(symbol);
 			});
 
 			report.push(missingBrackets);
