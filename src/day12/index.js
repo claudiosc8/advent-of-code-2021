@@ -45,7 +45,7 @@ const exploreCaves = (map, allowSingleSmallCaveTwice = false) => {
 				breadcrumbs.includes(cave) &&
 				shouldStopIteration
 			) {
-				// we can't visit a lowercase cave twice!
+				// we can't visit a lowercase cave twice! (part 1)
 				// or if we have already visited a lowercase cave twice (part 2)
 				continue;
 			}
